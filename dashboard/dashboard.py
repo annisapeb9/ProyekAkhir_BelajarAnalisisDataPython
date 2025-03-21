@@ -10,7 +10,7 @@ st.subheader("Data")
 def PengaruhHariKerja_df(df):
     PengaruhHariKerja = df.groupby(by="workingday").instant.nunique().reset_index()
     PengaruhHariKerja.rename(columns={"instant": "sum"}, inplace=True)
-   PengaruhHariKerja
+    PengaruhHariKerja
 
     return PengaruhHariKerja
 
