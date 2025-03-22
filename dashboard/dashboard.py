@@ -5,22 +5,6 @@ import streamlit as st
 from pathlib import Path
 
 sns.set(style='darkgrid')
-
-st.subheader("Data")
-def PengaruhHariKerja_df(df):
-    PengaruhHariKerja = df.groupby(by="workingday").instant.nunique().reset_index()
-    PengaruhHariKerja.rename(columns={"instant": "sum"}, inplace=True)
-    PengaruhHariKerja
-
-    return PengaruhHariKerja
-
-
-def PengaruhCuaca_df(df):
-    PengaruhCuaca = df.groupby(by="weathersit").instant.nunique().reset_index()
-    PengaruhCuaca.rename(columns={"instant": "sum"}, inplace=True)
-    PengaruhCuaca
-
-    return PengaruhCuaca
     
 def sidebar(df):
     df["dteday"] = pd.to_datetime(df["dteday"])
@@ -68,6 +52,22 @@ PengaruhCuaca = PengaruhCuaca_df(main_df)
 st.header("Bike Sharing Dashboard 🚴")
 st.markdown("### Analisis Pengaruh Faktor Eksternal terhadap Jumlah Pengguna Bike Sharing")
 
+st.subheader("Data")
+def PengaruhHariKerja_df(df):
+    PengaruhHariKerja = df.groupby(by="workingday").instant.nunique().reset_index()
+    PengaruhHariKerja.rename(columns={"instant": "sum"}, inplace=True)
+    PengaruhHariKerja
+
+    return PengaruhHariKerja
+
+
+def PengaruhCuaca_df(df):
+    PengaruhCuaca = df.groupby(by="weathersit").instant.nunique().reset_index()
+    PengaruhCuaca.rename(columns={"instant": "sum"}, inplace=True)
+    PengaruhCuaca
+
+    return PengaruhCuaca
+    
 st.subheader("Pengaruh Hari Kerja terhadap Jumlah Pengguna")
 fig, ax = plt.subplots(figsize=(6, 4))
 sns.barplot(x="workingday", y="sum", data=PengaruhHariKerja, palette="coolwarm", ax=ax)
