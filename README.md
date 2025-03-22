@@ -4,6 +4,8 @@
 
 Proyek ini bertujuan untuk menganalisis data dari Bike Sharing Dataset untuk menghasilkan wawasan yang bermanfaat terkait pola penggunaan sepeda. Dengan menggunakan Python dan berbagai pustaka analisis data, aplikasi ini dapat memberikan insight yang dapat digunakan untuk mengetahui pola hubungan pengguna dalam menggunakan sepeda dengan berbagai parameter pembanding.
 
+![image](https://github.com/user-attachments/assets/29308c9b-8fb3-418d-a1c4-7797712eeabb)
+
 ## Setup Environment - Anaconda
 
 ```
