@@ -24,12 +24,12 @@ def PengaruhCuaca_df(df):
 
 
 def sidebar(df):
-    df["tanggal"] = pd.to_datetime(df["tanggal"])
-    min_date = df["tanggal"].min()
-    max_date = df["tanggal"].max()
+    df["dteday"] = pd.to_datetime(df["dteday"])
+    min_date = df["dteday"].min()
+    max_date = df["dteday"].max()
 
     with st.sidebar:
-        st.image("D:\A SEMESTER 6 CODING CAMP DBS\Belajar Dasar Analisis Data Dengan Python\ProyekAkhir_BelajarAnalisisDataPython-main\dashboard\images.jpg", width=250)
+        st.image("dashboard/images.jpg", width=250)
 
         st.markdown("<h2 style='text-align: center; color: #FF5733;'>🚴 Bike Sharing Dashboard</h2>", unsafe_allow_html=True)
         
@@ -58,10 +58,10 @@ day_df = pd.read_csv("dashboard/dashboard.csv")
 
 date = sidebar(day_df)
 if len(date) == 2:
-    main_df = day_df[(day_df["tanggal"] >= str(date[0])) & (day_df["tanggal"] <= str(date[1]))]
+    main_df = day_df[(day_df["dteday"] >= str(date[0])) & (day_df["dteday"] <= str(date[1]))]
 else:
     main_df = day_df[
-        (day_df["tanggal"] >= str(st.session_state.date[0])) & (day_df["tanggal"] <= str(st.session_state.date[1]))]
+        (day_df["dteday"] >= str(st.session_state.date[0])) & (day_df["dteday"] <= str(st.session_state.date[1]))]
 
 PengaruhHariKerja = PengaruhHariKerja_df(main_df)
 PengaruhCuaca = PengaruhCuaca_df(main_df)
