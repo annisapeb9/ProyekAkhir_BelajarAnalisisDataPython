@@ -54,7 +54,7 @@ def sidebar(df):
 
     return date
 
-day_df = pd.read_csv("dashboard.csv")
+day_df = pd.read_csv("dashboard/dashboard.csv")
 
 date = sidebar(day_df)
 if len(date) == 2:
