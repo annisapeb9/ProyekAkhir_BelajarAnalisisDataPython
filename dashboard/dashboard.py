@@ -6,23 +6,6 @@ from pathlib import Path
 
 sns.set(style='darkgrid')
 
-st.subheader("Data")
-def PengaruhHariKerja_df(df):
-    PengaruhHariKerja = df.groupby(by="workingday").instant.nunique().reset_index()
-    PengaruhHariKerja.rename(columns={"instant": "sum"}, inplace=True)
-    PengaruhHariKerja
-
-    return PengaruhHariKerja
-
-
-def PengaruhCuaca_df(df):
-    PengaruhCuaca = df.groupby(by="weathersit").instant.nunique().reset_index()
-    PengaruhCuaca.rename(columns={"instant": "sum"}, inplace=True)
-    PengaruhCuaca
-
-    return PengaruhCuaca
-
-
 def sidebar(df):
     df["dteday"] = pd.to_datetime(df["dteday"])
     min_date = df["dteday"].min()
@@ -94,6 +77,22 @@ ax.set_xlabel("Temperatur Normal dalam Celcius")
 ax.set_ylabel("Jumlah Pengguna")
 ax.set_title("Scatter Plot Pengaruh Temperatur terhadap Pengguna Bike Sharing")
 st.pyplot(fig)
+
+st.subheader("Data")
+def PengaruhHariKerja_df(df):
+    PengaruhHariKerja = df.groupby(by="workingday").instant.nunique().reset_index()
+    PengaruhHariKerja.rename(columns={"instant": "sum"}, inplace=True)
+    PengaruhHariKerja
+
+    return PengaruhHariKerja
+
+
+def PengaruhCuaca_df(df):
+    PengaruhCuaca = df.groupby(by="weathersit").instant.nunique().reset_index()
+    PengaruhCuaca.rename(columns={"instant": "sum"}, inplace=True)
+    PengaruhCuaca
+
+    return PengaruhCuaca
 
 if __name__ == "__main__":
     st.caption("Copyright © 2025 | Bike Sharing Dashboard | All Rights Reserved | Made by: [@annisapeb_9]")
